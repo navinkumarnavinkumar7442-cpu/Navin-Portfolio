@@ -1,278 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
 
-    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navin kumar | Portfolio</title>
 
-    <title>Navin Kumar | Java Developer</title>
+<meta name="description" content="Official portfolio of Navin Kumar , B.Tech CSE Student and Developer.">
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#020617;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background Glow */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#00c8ff;
+    filter:blur(180px);
+    opacity:.10;
+    top:10%;
+    left:-150px;
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:#0066ff;
+    filter:blur(180px);
+    opacity:.10;
+    bottom:10%;
+    right:-150px;
+    z-index:-1;
+}
+
+
+/* NAVBAR */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(2,6,23,.85);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(0,200,255,.15);
+}
+
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#00c8ff;
+    text-shadow:0 0 15px #00c8ff;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#e2e8f0;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00c8ff;
+    text-shadow:0 0 10px #00c8ff;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    max-width:1200px;
+    margin:auto;
+    padding:130px 30px 70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:70px;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h4{
+    color:#00c8ff;
+    font-size:20px;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero-text h1 span{
+    color:#00c8ff;
+    text-shadow:
+    0 0 10px #00c8ff,
+    0 0 30px #00c8ff;
+}
+
+.hero-text h2{
+    color:#94a3b8;
+    font-size:25px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#94a3b8;
+    font-size:18px;
+    line-height:1.8;
+    max-width:600px;
+}
+
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+    background:#00c8ff;
+    color:#020617;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:8px;
+    box-shadow:0 0 20px rgba(0,200,255,.5);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 35px #00c8ff;
+}
+
+
+/* PROFILE PHOTO */
+
+.profile-container{
+    width:360px;
+    height:460px;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-container::before{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:460px;
+    border:2px solid #00c8ff;
+    border-radius:30px;
+    transform:rotate(5deg);
+    box-shadow:0 0 25px #00c8ff;
+}
+
+.profile-container img{
+    width:340px;
+    height:440px;
+    object-fit:cover;
+    object-position:center top;
+    border-radius:25px;
+    border:3px solid #00c8ff;
+    box-shadow:
+    0 0 30px rgba(0,200,255,.6),
+    0 20px 60px rgba(0,0,0,.7);
+    position:relative;
+    transition:.5s;
+}
+
+.profile-container img:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 50px #00c8ff;
+}
+
+
+/* SOCIAL */
+
+.social-icons{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+}
+
+.social-icons a{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    color:white;
+    background:#0f172a;
+    border:1px solid #1e293b;
+    font-size:20px;
+    transition:.3s;
+}
+
+.social-icons a:hover{
+    color:#020617;
+    background:#00c8ff;
+    transform:translateY(-6px);
+    box-shadow:0 0 20px #00c8ff;
+}
+
+
+/* SECTIONS */
+
+section{
+    padding:100px 30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:50px;
+}
+
+.title span{
+    color:#00c8ff;
+    text-shadow:0 0 15px #00c8ff;
+}
+
+
+/* ABOUT */
+
+.about-box{
+    padding:40px;
+    background:rgba(15,23,42,.7);
+    border:1px solid rgba(0,200,255,.2);
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,200,255,.05);
+}
+
+.about-box p{
+    color:#cbd5e1;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.about-box strong{
+    color:#00c8ff;
+}
+
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.skill{
+    width:170px;
+    padding:30px 20px;
+    text-align:center;
+    background:rgba(15,23,42,.7);
+    border:1px solid rgba(0,200,255,.15);
+    border-radius:15px;
+    transition:.4s;
+}
+
+.skill i{
+    font-size:45px;
+    color:#00c8ff;
+    margin-bottom:15px;
+}
+
+.skill:hover{
+    transform:translateY(-10px);
+    border-color:#00c8ff;
+    box-shadow:0 0 25px rgba(0,200,255,.3);
+}
+
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project{
+    padding:30px;
+    background:rgba(15,23,42,.7);
+    border:1px solid rgba(0,200,255,.15);
+    border-radius:18px;
+    transition:.4s;
+}
+
+.project i{
+    font-size:40px;
+    color:#00c8ff;
+    margin-bottom:20px;
+}
+
+.project h3{
+    margin-bottom:12px;
+}
+
+.project p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+    border-color:#00c8ff;
+    box-shadow:0 0 25px rgba(0,200,255,.2);
+}
+
+
+/* CONTACT */
+
+.contact{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.contact-card{
+    padding:25px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:rgba(15,23,42,.7);
+    border:1px solid rgba(0,200,255,.15);
+    border-radius:15px;
+}
+
+.contact-card i{
+    font-size:30px;
+    color:#00c8ff;
+}
+
+.contact-card h4{
+    color:#64748b;
+    margin-bottom:5px;
+}
+
+.contact-card a{
+    color:white;
+    text-decoration:none;
+}
+
+.contact-card a:hover{
+    color:#00c8ff;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:35px;
+    text-align:center;
+    background:#01030b;
+    color:#64748b;
+}
+
+footer strong{
+    color:#00c8ff;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        padding-top:160px;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text h2{
+        font-size:20px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+
+    .profile-container{
+        width:290px;
+        height:380px;
+    }
+
+    .profile-container::before{
+        width:290px;
+        height:380px;
+    }
+
+    .profile-container img{
+        width:270px;
+        height:360px;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
 
-    <!-- Navbar -->
+<!-- NAVBAR -->
 
-    <nav>
+<header>
 
-        <h2>Navin Kumar</h2>
+<nav class="navbar">
 
-        <div class="nav-links">
+<div class="logo">
+Navin Kumar
+</div>
 
-            <a href="#home">Home</a>
+<ul class="nav-links">
 
-            <a href="#about">About</a>
+<li><a href="#home">Home</a></li>
 
-            <a href="#skills">Skills</a>
+<li><a href="#about">About</a></li>
 
-            <a href="#projects">Projects</a>
+<li><a href="#skills">Skills</a></li>
 
-            <a href="#contact">Contact</a>
+<li><a href="#projects">Projects</a></li>
 
-        </div>
+<li><a href="#contact">Contact</a></li>
 
-    </nav>
+</ul>
 
+</nav>
 
-    <!-- Home -->
+</header>
 
-    <section id="home" class="home">
 
-        <div class="home-content">
 
+<!-- HERO -->
 
-            <!-- Profile Photo -->
+<section class="hero" id="home">
 
-            <img
-                src="WhatsApp%20Image%202026-01-09%20at%2017.57.48_b7930289.jpg"
-                alt="Navin Kumar"
-                class="profile-photo"
-            >
 
+<div class="hero-text">
 
-            <p>Hello, I'm</p>
+<h4>HELLO, I'M</h4>
 
-            <h1>Navin Kumar</h1>
+<h1>
+Navin Kumar
+<span>Navin</span>
+</h1>
 
-            <h2>Java Developer & DSA Learner</h2>
+<h2>
+B.Tech CSE Student & Developer
+</h2>
 
-            <p>
-                B.Tech Computer Science Engineering student
-                passionate about Java, DSA, Web Development
-                and Software Development.
-            </p>
+<p>
+I am a Computer Science & Engineering student
+passionate about programming, web development
+and modern technology. I love learning new skills
+and creating creative digital projects.
+</p>
 
+<a href="#contact" class="btn">
+Let's Connect
+</a>
 
-            <!-- Buttons -->
 
-            <div class="buttons">
+<div class="social-icons">
 
-                <a href="#projects">
-                    View Projects
-                </a>
+<a href="https://github.com/" target="_blank">
+<i class="fa-brands fa-github"></i>
+</a>
 
-                <a href="#contact">
-                    Contact Me
-                </a>
+<a href="https://www.linkedin.com/" target="_blank">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
 
-            </div>
+<a href="https://www.instagram.com/im_navin_73/" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
 
-        </div>
+</div>
 
-    </section>
+</div>
 
 
-    <!-- About -->
+<!-- YOUR UPLOADED PHOTO -->
 
-    <section id="about">
+<div class="profile-container">
 
-        <h2 class="title">About Me</h2>
+<img
+src="WhatsApp%20Image%202026-01-09%20at%2017.57.48_b7930289.jpg"
+alt="Navin Kumar  Profile Photo">
 
-        <div class="about-content">
+</div>
 
-            <p>
-                I am a B.Tech Computer Science Engineering student
-                interested in software development and problem solving.
-            </p>
 
-            <p>
-                I have learned Java, HTML, CSS, JavaScript and SQL.
-                Currently, I am improving my Data Structures and
-                Algorithms skills and solving problems on LeetCode.
-            </p>
+</section>
 
-            <p>
-                My goal is to become a software developer and
-                get an internship and job in the software industry.
-            </p>
 
-        </div>
 
-    </section>
+<!-- ABOUT -->
 
+<section id="about">
 
-    <!-- Skills -->
+<div class="container">
 
-    <section id="skills">
+<h2 class="title">
+About <span>Me</span>
+</h2>
 
-        <h2 class="title">My Skills</h2>
+<div class="about-box">
 
-        <div class="skills-container">
+<p>
 
-            <div class="skill">
-                Java
-            </div>
+Hello! My name is
+<strong>Navin Kumar</strong>.
 
-            <div class="skill">
-                DSA
-            </div>
+I am a B.Tech Computer Science &
+ Software Engineering student.
 
-            <div class="skill">
-                HTML
-            </div>
+I am interested in Java programming, DSA solving problem
+ HTML, CSS, js, sql, Dbms and web development.
 
-            <div class="skill">
-                CSS
-            </div>
+I enjoy exploring new technologies,
+improving my coding skills and
+building innovative projects.
 
-            <div class="skill">
-                JavaScript
-            </div>
+</p>
 
-            <div class="skill">
-                SQL
-            </div>
+</div>
 
-            <div class="skill">
-                Git & GitHub
-            </div>
+</div>
 
-        </div>
+</section>
 
-    </section>
 
 
-    <!-- Projects -->
+<!-- SKILLS -->
 
-    <section id="projects">
+<section id="skills">
 
-        <h2 class="title">My Projects</h2>
+<div class="container">
 
-        <div class="project-container">
+<h2 class="title">
+My <span>Skills</span>
+</h2>
 
+<div class="skills">
 
-            <!-- Project 1 -->
+<div class="skill">
+<i class="fa-brands fa-java"></i>
+<h3>Java</h3>
+</div>
 
-            <div class="project-card">
+<div class="skill">
+<i class="fa-solid fa-code"></i>
+<h3>C++</h3>
+</div>
 
-                <h3>Calculator</h3>
+<div class="skill">
+<i class="fa-brands fa-html5"></i>
+<h3>HTML</h3>
+</div>
 
-                <p>
-                    A simple calculator created using
-                    HTML, CSS and JavaScript.
-                </p>
+<div class="skill">
+<i class="fa-brands fa-css3-alt"></i>
+<h3>CSS</h3>
+</div>
 
-                <a href="#">
-                    View Project
-                </a>
+ <div class="skill">
+<i class="fa-brands fa-css3-alt"></i>
+<h3>SQL</h3>
+</div>
+    
+<div class="skill">
+<i class="fa-brands fa-github"></i>
+<h3>GitHub</h3>
+</div>
 
-            </div>
+</div>
 
+</div>
 
-            <!-- Project 2 -->
+</section>
 
-            <div class="project-card">
 
-                <h3>Student Management System</h3>
 
-                <p>
-                    Java based project for managing
-                    student information.
-                </p>
+<!-- PROJECTS -->
 
-                <a href="#">
-                    View Project
-                </a>
+<section id="projects">
 
-            </div>
+<div class="container">
 
+<h2 class="title">
+My <span>Projects</span>
+</h2>
 
-            <!-- Project 3 -->
+<div class="projects">
 
-            <div class="project-card">
+<div class="project">
 
-                <h3>DSA Practice</h3>
+<i class="fa-solid fa-graduation-cap"></i>
 
-                <p>
-                    Java solutions for Data Structures,
-                    Algorithms and LeetCode problems.
-                </p>
+<h3>
+Student Grade Tracker
+</h3>
 
-                <a href="#">
-                    View GitHub
-                </a>
+<p>
+Java-based project for managing
+student grades and calculating
+average, highest and lowest scores.
+</p>
 
-            </div>
+</div>
 
-        </div>
 
-    </section>
+<div class="project">
 
+<i class="fa-solid fa-hotel"></i>
 
-    <!-- Contact -->
+<h3>
+Hotel Reservation System
+</h3>
 
-    <section id="contact">
+<p>
+A system designed to manage
+hotel rooms, reservations and
+customer booking information.
+</p>
 
-        <h2 class="title">
-            Contact Me
-        </h2>
+</div>
 
-        <div class="contact-content">
 
-            <p>
-                Email:
-                <a href="mailto:yourmail@gmail.com">
-                    yourmail@gmail.com
-                </a>
-            </p>
+<div class="project">
 
-            <p>
-                GitHub:
-                <a href="#">
-                    github.com/yourusername
-                </a>
-            </p>
+<i class="fa-solid fa-robot"></i>
 
-            <p>
-                LinkedIn:
-                <a href="#">
-                    LinkedIn Profile
-                </a>
-            </p>
+<h3>
+AI Chatbot
+</h3>
 
-        </div>
+<p>
+A chatbot project created to
+explore artificial intelligence
+and conversational systems.
+</p>
 
-    </section>
+</div>
 
+</div>
 
-    <!-- Footer -->
+</div>
 
-    <footer>
+</section>
 
-        <p>
-            © 2026 Navin Kumar | Portfolio
-        </p>
 
-    </footer>
 
+<!-- CONTACT -->
 
-    <script src="script.js"></script>
+<section id="contact">
+
+<div class="container">
+
+<h2 class="title">
+Contact <span>Me</span>
+</h2>
+
+<div class="contact">
+
+
+<div class="contact-card">
+
+<i class="fa-solid fa-user"></i>
+
+<div>
+
+<h4>Name</h4>
+
+<p>
+Navin Kumar
+</p>
+
+</div>
+
+</div>
+
+
+<div class="contact-card">
+
+<i class="fa-solid fa-envelope"></i>
+
+<div>
+
+<h4>Email</h4>
+
+<a href="mailto:navinkumarnavinkumar7442@gmail.com">
+navinkumarnavinkumar7442@gmail.com
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-card">
+
+<i class="fa-solid fa-phone"></i>
+
+<div>
+
+<h4>Contact</h4>
+
+<a href="tel:7739095779">
++91 7739095779
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-card">
+
+<i class="fa-brands fa-instagram"></i>
+
+<div>
+
+<h4>Instagram</h4>
+
+<a href="https://www.instagram.com/im_navin_73/"
+target="_blank">
+
+@im_navin_73
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© 2026
+<strong>Navin Kumar</strong>
+| All Rights Reserved.
+
+</p>
+
+<p>
+Designed & Developed by Er Navin Kumar
+</p>
+
+</footer>
+
 
 </body>
-
 </html>
